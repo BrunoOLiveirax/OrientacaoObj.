@@ -1,0 +1,77 @@
+// Classe mae Ponto com coordenadas
+Classe Ponto{
+    int x,y;
+   
+    Construtor(xi,yi):
+    x=xi;
+    y=yi;
+
+// Mostra em qual quadrante está
+    Definir quadrante():
+    if(x>0) and (y>0)
+        return 1;
+    if(x>0) and (y<0)
+        return 2
+    if(x<0) and (y>0)
+        return 3
+    if(x<0) and (y<0)
+        return 4
+
+    Definir distancia():
+        return sqrt(x^2+y^2)
+}
+// Fim classe ponto
+
+//Classes Formas Geometricas que tem Herança pela classe ponto
+Classe Quadrado{
+    Ponto.Quadrado()
+    Construtor()
+    Area=(x-x0)^2;
+        return(coordenadas do ponto)
+
+}
+
+Classe Circulo{
+    Ponto.Circulo()
+    Construtor()
+    Area=(pi*r^2);
+        return(coordenadas do ponto)
+
+}
+
+Classe Retangulo{
+    Ponto.Retangulo()
+    Construtor()
+    Area=(x-x0)*(y-y0);
+        return(coordenadas do ponto)
+
+}
+// Main
+Main(){
+    a=Ponto(3,6)
+    print: p.distancia()
+    if(x-x0)==(y-y0)
+        return Quadrado;
+    if(x-x0)!=(y-y0)
+        return Retangulo;
+        else()
+        return Circulo;    
+
+    b=Ponto(5,9)
+    print: p.distancia()
+    if(x-x0)==(y-y0)
+        return Quadrado;
+    if(x-x0)!=(y-y0)
+        return Retangulo;
+        else()
+        return Circulo; 
+
+    c=Ponto(2,4)
+    print: p.distancia()
+    if(x-x0)==(y-y0)
+        return Quadrado;
+    if(x-x0)!=(y-y0)
+        return Retangulo;
+        else()
+        return Circulo; 
+}
