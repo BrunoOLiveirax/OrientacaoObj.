@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <math.h>
+
+// Definição da classe Ponto
+typedef struct {
+    float x;
+    float y;
+} Ponto;
+
+// Função para criar um ponto
+Ponto criarPonto(float x, float y) {
+    Ponto ponto;
+    ponto.x = x;
+    ponto.y = y;
+    return ponto;
+}
+
+// Definição da classe FormaGeometrica (classe mãe)
+typedef struct {
+    Ponto pontoCentral;
+} FormaGeometrica;
+
+// Função para calcular a área de uma forma geométrica
+float calcularArea(const FormaGeometrica *forma) {
+    return 0.0; // Implementação específica de cada forma geométrica irá sobrescrever isso
+}
+
+// Definição da classe Quadrado (classe filha)
+typedef struct {
+    FormaGeometrica forma;
+    float lado;
+} Quadrado;
+
+// Função para criar um quadrado
+Quadrado criarQuadrado(float x, float y, float lado) {
+    Quadrado quadrado;
+    quadrado.forma.pontoCentral = criarPonto(x, y);
+    quadrado.lado = lado;
+    return quadrado;
+}
+
+// Implementação do cálculo de área para um quadrado
+float calcularAreaQuadrado(const Quadrado *quadrado) {
+    return pow(quadrado->lado, 2);
+}
+
+// Definição da classe Retangulo (classe filha)
+typedef struct {
+    FormaGeometrica forma;
+    float largura;
+    float altura;
+} Retangulo;
+
+// Função para criar um retângulo
+Retangulo criarRetangulo(float x, float y, float largura, float altura) {
+    Retangulo retangulo;
+    retangulo.forma.pontoCentral = criarPonto(x, y);
+    retangulo.largura = largura;
+    retangulo.altura = altura;
+    return retangulo;
+}
+
+// Implementação do cálculo de área para um retângulo
+float calcularAreaRetangulo(const Retangulo *retangulo) {
+    return retangulo->largura * retangulo->altura;
+}
+
+// Definição da classe Circulo (classe filha)
+typedef struct {
+    FormaGeometrica forma;
+    float raio;
+} Circulo;
+
+// Função para criar um círculo
+Circulo criarCirculo(float x, float y, float raio) {
+    Circulo circulo;
+    circulo.forma.pontoCentral = criarPonto(x, y);
+    circulo.raio = raio;
+    return circulo;
+}
+
+// Implementação do cálculo de área para um círculo
+float calcularAreaCirculo(const Circulo *circulo) {
+    return M_PI * pow(circulo->raio, 2);
+}
+
+int main() {
+    Quadrado meuQuadrado = criarQuadrado(2.0, 3.0, 4.0);
+    Retangulo meuRetangulo = criarRetangulo(1.0, 1.0, 5.0, 3.0);
+    Circulo meuCirculo = criarCirculo(0.0, 0.0, 2.5);
+
+    printf("Area do quadrado: %.2f\n", calcularAreaQuadrado(&meuQuadrado));
+    printf("Area do retangulo: %.2f\n", calcularAreaRetangulo(&meuRetangulo));
+    printf("Area do circulo: %.2f\n", calcularAreaCirculo(&meuCirculo));
+
+    return 0;
+}
